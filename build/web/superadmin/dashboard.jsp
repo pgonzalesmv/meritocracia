@@ -1,17 +1,39 @@
-<%-- 
-    Document   : dashboard
-    Created on : 21/05/2025, 12:23:22 PM
-    Author     : PAUL
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="modelo.Usuario" %>
+<%
+    Usuario usuario = (Usuario) session.getAttribute("usuario");
+    if (usuario == null || !"superadministrador".equals(usuario.getRol())) {
+        response.sendRedirect("../login.jsp");
+        return;
+    }
+%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
+<head>
+    <title>Panel del Superadministrador</title>
+    <%@ include file="../includes/head.jsp" %>
+</head>
+<body>
+<%@ include file="../includes/navbar.jsp" %>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <%@ include file="../includes/sidebar.jsp" %>
+        </div>
+        <div class="col-md-10 mt-4">
+            <h3><i class="fas fa-user-cog"></i> Bienvenido, <%= usuario.getNombre() %></h3>
+            <p>Desde este panel puedes:</p>
+            <ul>
+                <li>Crear y gestionar convocatorias</li>
+                <li>Configurar criterios de evaluación</li>
+                <li>Administrar usuarios y permisos</li>
+                <li>Visualizar reportes generales del sistema</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<%@ include file="../includes/footer.jsp" %>
+</body>
 </html>

@@ -1,4 +1,4 @@
-<%@ include file="../includes/head.jsp" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page import="modelo.Usuario" %>
 <%
     Usuario usuario = (Usuario) session.getAttribute("usuario");
@@ -7,25 +7,30 @@
         return;
     }
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Panel Postulante</title>
+    <title>Panel del Postulante</title>
+    <%@ include file="../includes/head.jsp" %>
 </head>
 <body>
 <%@ include file="../includes/navbar.jsp" %>
 
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-2">
-      <%@ include file="../includes/sidebar.jsp" %>
+    <div class="row">
+        <div class="col-md-2">
+            <%@ include file="../includes/sidebar.jsp" %>
+        </div>
+        <div class="col-md-10 mt-4">
+            <h3><i class="fas fa-user-graduate"></i> Bienvenido, <%= usuario.getNombre() %></h3>
+            <p>Desde este panel podr√°s:</p>
+            <ul>
+                <li>Subir documentos y declaraciones juradas</li>
+                <li>Ver el estado de tu postulaci√≥n</li>
+                <li>Revisar tus puntajes asignados</li>
+            </ul>
+        </div>
     </div>
-    <div class="col-md-10 mt-4">
-        <h3>Bienvenido, <%= usuario.getNombre() %> <i class="fa fa-hand"></i></h3>
-        <p>AquÌ ver·s tu avance, documentos cargados y puntajes.</p>
-    </div>
-  </div>
 </div>
 
 <%@ include file="../includes/footer.jsp" %>
