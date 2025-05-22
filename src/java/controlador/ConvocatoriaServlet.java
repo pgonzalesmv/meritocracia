@@ -31,6 +31,6 @@ public class ConvocatoriaServlet extends HttpServlet {
             dao.crear(c);
         }
 
-        response.sendRedirect("superadmin/convocatorias.jsp");
+        response.sendRedirect("superadmin/convocatorias.jsp?creado=1");
     }
 }
