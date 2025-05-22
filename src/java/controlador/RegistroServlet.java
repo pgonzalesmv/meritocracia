@@ -26,7 +26,7 @@ public class RegistroServlet extends HttpServlet {
         boolean registrado = dao.registrarUsuario(usuario);
 
         if (registrado) {
-            response.sendRedirect("registro.jsp?exito=1");
+            response.sendRedirect("login.jsp?registro=1");
         } else {
             response.sendRedirect("registro.jsp?error=1");
         }

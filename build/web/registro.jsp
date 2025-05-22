@@ -37,28 +37,33 @@
                             <button type="submit" class="btn btn-primary">Registrar</button>
                         </div>
                     </form>
+                    <p class="mt-3 text-center">
+                        ¿Ya tienes una cuenta? <a href="login.jsp">Inicia sesión</a>
+                    </p>
+
                 </div>
             </div>
         </div>
+
         <script>
             <% if (request.getParameter("exito") != null) { %>
-        Swal.fire({
-            icon: 'success',
-            title: '¡Registro exitoso!',
-            text: 'Ahora puedes iniciar sesión.',
-            //confirmButtonText: 'OK'
-            timer: 3000,
-            showConfirmButton: false
-        });
+            Swal.fire({
+                icon: 'success',
+                title: '¡Registro exitoso!',
+                text: 'Ahora puedes iniciar sesión.',
+                //confirmButtonText: 'OK'
+                timer: 3000,
+                showConfirmButton: false
+            });
             <% } else if (request.getParameter("error") != null) { %>
-        Swal.fire({
-            icon: 'error',
-            title: 'Error de registro',
-            text: 'DNI o correo ya registrado.',
-            //confirmButtonText: 'Intentar nuevamente'
-            timer: 3000,
-            showConfirmButton: false
-        });
+            Swal.fire({
+                icon: 'error',
+                title: 'Error de registro',
+                text: 'DNI o correo ya registrado.',
+                //confirmButtonText: 'Intentar nuevamente'
+                timer: 3000,
+                showConfirmButton: false
+            });
             <% }%>
         </script>
     </body>
