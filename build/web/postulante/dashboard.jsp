@@ -1,6 +1,5 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ include file="../includes/head.jsp" %>
 <%@ page import="modelo.Usuario" %>
-<%@ page session="true" %>
 <%
     Usuario usuario = (Usuario) session.getAttribute("usuario");
     if (usuario == null || !"postulante".equals(usuario.getRol())) {
@@ -12,26 +11,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Panel del Postulante</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Panel Postulante</title>
 </head>
-<body class="bg-light">
+<body>
+<%@ include file="../includes/navbar.jsp" %>
 
-<div class="container mt-5">
-    <div class="card shadow">
-        <div class="card-body">
-            <h3 class="card-title">Bienvenido, <%= usuario.getNombre() %> <%= usuario.getApellido() %> 👋</h3>
-            <p class="card-text">Email: <%= usuario.getEmail() %></p>
-            <p class="card-text">DNI: <%= usuario.getDni() %></p>
-
-            <hr>
-            <p>📌 Aquí podrás seguir tu postulación, subir documentos y ver tu progreso.</p>
-
-            <a href="../LogoutServlet" class="btn btn-danger">Cerrar sesión</a>
-        </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <%@ include file="../includes/sidebar.jsp" %>
     </div>
+    <div class="col-md-10 mt-4">
+        <h3>Bienvenido, <%= usuario.getNombre() %> <i class="fa fa-hand"></i></h3>
+        <p>Aqu� ver�s tu avance, documentos cargados y puntajes.</p>
+    </div>
+  </div>
 </div>
 
+<%@ include file="../includes/footer.jsp" %>
 </body>
 </html>
