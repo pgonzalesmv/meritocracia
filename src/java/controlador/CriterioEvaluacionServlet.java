@@ -12,7 +12,7 @@ public class CriterioEvaluacionServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws IOException {
+            throws IOException {
         int convocatoriaId = Integer.parseInt(request.getParameter("convocatoria_id"));
 
         CriterioEvaluacion c = new CriterioEvaluacion();
@@ -29,5 +29,19 @@ public class CriterioEvaluacionServlet extends HttpServlet {
         dao.crear(c);
 
         response.sendRedirect("superadmin/criterios.jsp?convocatoria_id=" + convocatoriaId + "&creado=1");
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+        String accion = request.getParameter("accion");
+        int convocatoriaId = Integer.parseInt(request.getParameter("convocatoria_id"));
+
+        if ("predefinidos".equals(accion)) {
+            CriterioEvaluacionDao dao = new CriterioEvaluacionDao();
+            boolean ok = dao.cargarPredefinidos(convocatoriaId);
+            String estado = ok ? "predefinidos_ok=1" : "predefinidos_error=1";
+            response.sendRedirect("superadmin/criterios.jsp?convocatoria_id=" + convocatoriaId + "&" + estado);
+        }
     }
 }
