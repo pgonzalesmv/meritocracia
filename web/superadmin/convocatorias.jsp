@@ -1,27 +1,34 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="java.util.*, modelo.Usuario, dao.ConvocatoriaDao, modelo.Convocatoria" %>
-<%@ page session="true" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="modelo.Usuario, modelo.Convocatoria, dao.ConvocatoriaDao, java.util.List" %>
 <%
     Usuario usuario = (Usuario) session.getAttribute("usuario");
     if (usuario == null || !"superadministrador".equals(usuario.getRol())) {
         response.sendRedirect("../login.jsp");
         return;
     }
+
     ConvocatoriaDao dao = new ConvocatoriaDao();
     List<Convocatoria> convocatorias = dao.listar();
 %>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Gestión de Convocatorias</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-    <body class="bg-light">
-        <div class="container mt-5">
-            <h3>📋 Gestión de Convocatorias</h3>
+<head>
+    <title>Gestión de Convocatorias</title>
+    <%@ include file="../includes/head.jsp" %>
+</head>
+<body>
+<%@ include file="../includes/navbar.jsp" %>
 
-            <!-- Formulario para nueva convocatoria -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <%@ include file="../includes/sidebar.jsp" %>
+        </div>
+
+        <div class="col-md-10 mt-4">
+            <h4><i class="fas fa-folder-plus"></i> Nueva Convocatoria</h4>
+
+            <!-- Formulario -->
             <form action="../ConvocatoriaServlet" method="post" class="card p-3 mb-4">
                 <input type="hidden" name="accion" value="crear">
                 <div class="row">
@@ -52,12 +59,14 @@
                     </div>
                 </div>
                 <div class="mt-3">
-                    <button type="submit" class="btn btn-success">Crear convocatoria</button>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-plus-circle"></i> Crear convocatoria
+                    </button>
                 </div>
             </form>
 
-            <!-- Aquí irá la lista de convocatorias (lo agregamos luego con lógica del servlet) -->
-            <h5>Convocatorias registradas</h5>
+            <!-- Tabla -->
+            <h5><i class="fas fa-list"></i> Convocatorias registradas</h5>
             <table class="table table-bordered table-hover">
                 <thead class="table-secondary">
                     <tr>
@@ -68,35 +77,33 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%
-                        for (Convocatoria c : convocatorias) {
-                    %>
+                <% for (Convocatoria c : convocatorias) { %>
                     <tr>
-                        <td><%= c.getId()%></td>
-                        <td><%= c.getTitulo()%><br><small><%= c.getDescripcion()%></small></td>
-                        <td>
-                            <%= c.getFechaInicio()%> → <%= c.getFechaFin()%>
-                        </td>
-                        <td><%= c.getEstado()%></td>
+                        <td><%= c.getId() %></td>
+                        <td><strong><%= c.getTitulo() %></strong><br><small><%= c.getDescripcion() %></small></td>
+                        <td><%= c.getFechaInicio() %> → <%= c.getFechaFin() %></td>
+                        <td><span class="badge bg-secondary"><%= c.getEstado() %></span></td>
                     </tr>
-                    <% }%>
+                <% } %>
                 </tbody>
             </table>
-
         </div>
-                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </div>
+</div>
+
+<%@ include file="../includes/footer.jsp" %>
+
+<!-- SweetAlert2 -->
 <script>
 <% if (request.getParameter("creado") != null) { %>
 Swal.fire({
     icon: 'success',
-    title: '¡Convocatoria registrada!',
-    text: 'Se ha creado correctamente.',
-    //confirmButtonText: 'OK'
-    timer: 3000,
-    showConfirmButton: false
+    title: 'Convocatoria registrada',
+    text: 'Se creó correctamente.',
+    confirmButtonText: 'OK'
 });
 <% } %>
 </script>
 
-    </body>
+</body>
 </html>
