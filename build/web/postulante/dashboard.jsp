@@ -9,30 +9,34 @@
 %>
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Panel del Postulante</title>
-    <%@ include file="../includes/head.jsp" %>
-</head>
-<body>
-<%@ include file="../includes/navbar.jsp" %>
+    <head>
+        <title>Panel del Postulante</title>
+        <%@ include file="../includes/head.jsp" %>
+    </head>
+    <body>
+        <%@ include file="../includes/navbar.jsp" %>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-2">
-            <%@ include file="../includes/sidebar.jsp" %>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2">
+                    <%@ include file="../includes/sidebar.jsp" %>
+                </div>
+                <div class="col-md-10 mt-4">
+                    <div><h3>Panel de Control</h3></div>
+                    <main class="bg-pj">
+                        <h3>👋 Bienvenido, <%= usuario.getNombre()%></h3>
+                        <p>Desde este panel puedes:</p>
+                        <ul>
+                            <li>Ver convocatorias disponibles</li>
+                            <li>Subir documentos para tu legajo</li>
+                            <li>Realizar declaraciones juradas</li>
+                            <li>Consultar el estado de tu evaluación</li>
+                        </ul>
+                    </main>
+                </div>
+            </div>
         </div>
-        <div class="col-md-10 mt-4">
-            <h3><i class="fas fa-user-graduate"></i> Bienvenido, <%= usuario.getNombre() %></h3>
-            <p>Desde este panel podrás:</p>
-            <ul>
-                <li>Subir documentos y declaraciones juradas</li>
-                <li>Ver el estado de tu postulación</li>
-                <li>Revisar tus puntajes asignados</li>
-            </ul>
-        </div>
-    </div>
-</div>
 
-<%@ include file="../includes/footer.jsp" %>
-</body>
+        <%@ include file="../includes/footer.jsp" %>
+    </body>
 </html>

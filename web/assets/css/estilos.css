@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/* === PALETA GENERAL === */
+:root {
+    --color-base: #F2F2F2;
+    --color-texto: #262626;
+    --color-principal: #9f0a2f;
+    --color-secundario: #8C8A7D;
+    --color-acento: #BF6969;
+}
+/* === ESTILO GLOBAL === */
+body {
+    background-color: var(--color-base);
+    color: var(--color-texto);
+    font-family: Poppins, sans-serif;
+}
+.bg-pj{
+    background: #9f0a2f;
+    background: linear-gradient(90deg, #9f0a2f, #d22d56);
+    color:#fff;
+    padding:20px;
+    border-radius: 10px;
+}
+.bg-pj h1, .bg-pj h2, .bg-pj h3, .bg-pj h4, .bg-pj h5, .bg-pj h6{
+    color:white;
+}
+h1, h2, h3, h4, h5 {
+    color: var(--color-principal);
+}
+
+a {
+    color: var(--color-principal);
+}
+
+.shadow-1 {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.circular{
+    border-radius: 50%;
+}
+.text-pj{
+    color: var(--color-principal);
+}
+.siglas {
+    background: var(--color-principal);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.3em; 
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.card-pastel{
+    background: #F6DED8;
+    padding:10px;
+    font-size: 12px;
+    border:1px solid var(--color-principal);
+    border-radius: 10px;
+    margin-top:8px;
+    margin-bottom:8px;
+}
+
+.navbar {
+    background-color: white !important;
+}
+
+.navbar .navbar-brand {
+    color: var(--color-principal) !important;
+    font-weight: bold;
+}
+
+.navbar .text-white, .navbar .btn-danger {
+    color: #ffffff !important;
+}
+
+.sidebar {
+    background-color: #ffffff;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    background-color: #ffffff;
+    border: 1px solid rgba(0,0,0, 0.1);
+    font-size:14px;
+}
+
+.card-title {
+    color: var(--color-principal);
+}
+
+.badge.bg-info {
+    background-color: var(--color-acento) !important;
+    color: white;
+}
+
+/* === BOTONES === */
+.btn-success {
+    background-color: var(--color-principal);
+    border-color: var(--color-principal);
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: var(--color-secundario);
+    border-color: var(--color-secundario);
+}
+
+.btn-outline-primary {
+    color: var(--color-principal);
+    border-color: var(--color-principal);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--color-principal);
+    color: white;
+}
+
+/* === MODALES === */
+.modal-content {
+    border: 2px solid var(--color-secundario);
+}
+
+.modal-header {
+    background-color: var(--color-secundario);
+    color: white;
+}
+
+/* === TABLES === */
+.table thead {
+    background-color: var(--color-secundario);
+    color: white;
+}
+
+/* === SIDEBAR (si usas divs) === */
+.list-group-item {
+    border: none;
+    border-left: 4px solid transparent;
+}
+
+.list-group-item:hover, .list-group-item.active {
+    background-color: var(--color-acento);
+    color: white;
+    border-left: 4px solid var(--color-principal);
+}
+/* Para el color de fondo y borde */
+.btn-primary {
+  background-color: #9f0a2f;
+  border-color: #9f0a2f;
+}
+
+/* Para el estado hover/focus */
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #7d0826; /* Un tono un poco más oscuro para el hover */
+  border-color: #7d0826;
+}
+
+/* Para el estado activo (cuando se hace clic) */
+.btn-primary:active {
+  background-color: #6a0720; /* Un tono aún más oscuro */
+  border-color: #6a0720;
+}
+
+/* Para el estado de deshabilitado (opcional, si lo usas) */
+.btn-primary:disabled {
+  background-color: #9f0a2f; /* Mantiene el color base, pero puedes ajustarlo */
+  border-color: #9f0a2f;
+  opacity: 0.65; /* Hace que se vea ligeramente atenuado */
+}
+.aside{
+    min-width: 200px;
+    min-height: 600px;
+}
+.text-logo{
+    background: #9f0a2f;
+    padding: 6px 8px;
+    color: white;
+    text-align: text-center;
+    border-radius: 8px;
+    width: 40px;
+    font-size:16px;
+    font-weight: 700;
+    font-style: normal;
+    margin:10px auto 20px auto;
+    padding-right: 10px;
+}
+h2{
+    color:#9f0a2f;
+    font-size:18px;
+    font-weight: 700;
+}

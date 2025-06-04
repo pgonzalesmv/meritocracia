@@ -22,14 +22,17 @@
             <%@ include file="../includes/sidebar.jsp" %>
         </div>
         <div class="col-md-10 mt-4">
-            <h3><i class="fas fa-user-cog"></i> Bienvenido, <%= usuario.getNombre() %></h3>
-            <p>Desde este panel puedes:</p>
-            <ul>
-                <li>Crear y gestionar convocatorias</li>
-                <li>Configurar criterios de evaluación</li>
-                <li>Administrar usuarios y permisos</li>
-                <li>Visualizar reportes generales del sistema</li>
-            </ul>
+            <div><h3>Panel de Control</h3></div>
+            <main class="bg-pj">
+                <h3>👋 Bienvenido, <%= usuario.getNombre() %></h3>
+                <p>Desde este panel puedes:</p>
+                <ul>
+                    <li>Crear y gestionar convocatorias</li>
+                    <li>Configurar criterios de evaluación</li>
+                    <li>Administrar usuarios y permisos</li>
+                    <li>Visualizar reportes generales del sistema</li>
+                </ul>
+            </main>
         </div>
     </div>
 </div>

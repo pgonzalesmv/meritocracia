@@ -1,0 +1,81 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23/05/2025, 04:14:49 PM
+    Author     : PAUL
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+*{
+    font-family:Poppins;
+    font-size: 14px;
+}
+.bg-login{
+    background: #9f0a2f;
+    background: linear-gradient(90deg, #9f0a2f, #d22d56);
+}
+a{
+    color: #9f0a2f;
+}
+.text-logo{
+    background: #9f0a2f;
+    padding: 8px 10px;
+    color: white;
+    text-align: text-center;
+    border-radius: 8px;
+    width: 44px;
+    font-size:24px;
+    font-weight: 700;
+    font-style: normal;
+    margin:10px auto 20px auto;
+}
+h3{
+    color:#9f0a2f
+}
+.btn-login{
+    background-color: #9f0a2f;
+    color:white;
+    font-size: 14px;
+    font-weight: 500;
+}
+.login-desc{
+    --tw-text-opacity: 1;
+    color: rgb(100 116 139 / var(--tw-text-opacity, 1));
+    font-size: 14px;
+}
+label{
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.bg-pastel{
+    background: #F6DED8;
+}
+
+/* Para el color de fondo y borde */
+.btn-primary {
+  background-color: #9f0a2f;
+  border-color: #9f0a2f;
+}
+
+/* Para el estado hover/focus */
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #7d0826; /* Un tono un poco más oscuro para el hover */
+  border-color: #7d0826;
+}
+
+/* Para el estado activo (cuando se hace clic) */
+.btn-primary:active {
+  background-color: #6a0720; /* Un tono aún más oscuro */
+  border-color: #6a0720;
+}
+
+/* Para el estado de deshabilitado (opcional, si lo usas) */
+.btn-primary:disabled {
+  background-color: #9f0a2f; /* Mantiene el color base, pero puedes ajustarlo */
+  border-color: #9f0a2f;
+  opacity: 0.65; /* Hace que se vea ligeramente atenuado */
+}
